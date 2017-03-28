@@ -1,7 +1,7 @@
 startupintro
 ==============================
 
-__Version:__ 0.0.0
+__Version:__ 0.1.0-dev
 
 Video sharing site for site for giving intro about themselves
 
