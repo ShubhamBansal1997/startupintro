@@ -1,0 +1,38 @@
+# {{ ansible_managed }}
+
+# Serve static files and redirect any other request to django wsgi server
+server {
+    listen       {{ ngnix_listen }};
+    server_name  {{ domain_name }};
+
+    # Disable SSLv3(enabled by default since nginx 0.8.19) since it's less
+    # secure then TLS http://en.wikipedia.org/wiki/Secure_Sockets_Layer#SSL_3.0
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+
+    ssl on;
+    ssl_certificate     {{ ssl_cert_dir }}/{{ domain_name }}/fullchain.pem;
+    ssl_certificate_key {{ ssl_cert_dir }}/{{ domain_name }}/privkey.pem;
+    ssl_dhparam         {{ ssl_forward_secrecy_key_path }};
+
+    access_log   /var/log/nginx/{{ domain_name }}.access.log;
+    error_log    /var/log/nginx/{{ domain_name }}.error.log;
+
+    client_max_body_size {{ nginx_max_file_size }}M;
+
+    {% if use_letsencrypt %}
+        location /.well-known/acme-challenge {
+                root {{ letsencrypt_challange_root }};
+                try_files $uri =404;
+        }
+    {% endif %}
+
+    # Setup named location for Django requests and handle proxy details
+    location / {
+        uwsgi_pass unix:///tmp/django-uwsgi.sock;
+        include /etc/nginx/uwsgi_params;
+
+        # set correct scheme
+        uwsgi_param UWSGI_SCHEME $http_x_forwarded_proto;
+    }
+
+}

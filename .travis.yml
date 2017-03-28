@@ -1,0 +1,48 @@
+language: python
+sudo: false
+python:
+- '3.5.2'
+
+addons:
+  postgresql: "9.4"
+
+cache:
+  directories:
+    - $HOME/.cache/pip
+    - $HOME/.pip-accel
+
+before_cache:
+  - rm -f $HOME/.cache/pip/log/debug.log
+
+install:
+  - pip install pip-accel
+  - pip-accel install ansible
+  - pip-accel install -r requirements/development.txt
+
+before_script:
+- export DATABASE_URL=postgres://postgres@localhost/startupintro
+- psql -c "CREATE DATABASE startupintro;" -U postgres
+
+script:
+- flake8
+- py.test --cov -v --tb=native
+- ansible-playbook -i provisioner/hosts provisioner/site.yml --syntax-check
+
+notifications:
+  email:
+    on_success: change  # [always|never|change]
+    on_failure: always  # [always|never|change]
+
+deploy:
+  provider: heroku
+  buildpack: python
+  strategy: api
+  api_key:
+    # travis encrypt $(heroku auth:token) --add deploy.api_key
+    secure: <add_heroku_auth_token_here>
+  app:
+    master: startupintro-dev
+    qa: startupintro-qa
+    prod: startupintro-prod
+  on:
+    repo: ShubhamBansal1997/startupintro

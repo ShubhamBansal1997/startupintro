@@ -1,0 +1,9 @@
+"/var/log/{{celery_log_dir}}/celery.log" {
+  copytruncate
+  daily
+  rotate 5
+  compress
+  delaycompress
+  missingok
+  notifempty
+}

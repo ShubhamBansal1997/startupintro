@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Run migration while answering "yes" to any question prompted.
+yes "yes" | python manage.py migrate
+
+# Run production checks
+python manage.py check --deploy
+
+# Offline compression of staticfiles via django-compressor
+python manage.py compress
+
+# used by heroku after slug compilation
