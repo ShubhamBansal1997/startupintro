@@ -3,11 +3,11 @@ startupintro
 
 __Version:__ 0.1.0-dev
 
-Video sharing site for site for giving intro about themselves
+A Boilerplate to start bootstraping your startup website and app in React.js frontend and Django(python) backend and postgresql
 
 ## Getting up and running
 
-Minimum requirements: **pip, fabric, python3 & [postgres][install-postgres]**, setup is tested on Mac OSX only.
+Minimum requirements: **pip, fabric, python3, nodejs, npm & [postgres][install-postgres]**, setup is tested on Mac OSX only.
 
 ```
 brew install postgres python3
@@ -18,7 +18,7 @@ brew install postgres python3
 
 In your terminal, type or copy-paste the following:
 
-    git clone git@github.com:ShubhamBansal1997/startupintro.git; cd startupintro; fab init
+    git clone git@github.com:ShubhamBansal1997/startupintro.git; cd startupintro; npm install; fab webpack, fab init
 
 Go grab a cup of coffee, we bake your hot development machine.
 
@@ -27,6 +27,7 @@ Useful commands:
 - `fab serve` - start [django server](http://localhost:8000/)
 - `fab deploy_docs` - deploy docs to server
 - `fab test` - run the test locally with ipdb
+- 'fab webpack' - compile the frontend reactjs files
 
 **NOTE:** Checkout `fabfile.py` for all the options available and what/how they do it.
 
