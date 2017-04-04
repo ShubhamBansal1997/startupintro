@@ -27,10 +27,15 @@ Useful commands:
 - `fab serve` - start [django server](http://localhost:8000/)
 - `fab deploy_docs` - deploy docs to server
 - `fab test` - run the test locally with ipdb
-- 'fab webpack' - compile the frontend reactjs files
+- `fab webpack` - compile the frontend reactjs files into bundles folder
 
 **NOTE:** Checkout `fabfile.py` for all the options available and what/how they do it.
 
+## Developing project
+
+- Move to startupintro folder(cd startupintro ) after cloning and installing npm packages
+- Run node server.js in one terminal and python manage.py runserver in another terminal
+- Any changes in the reactjs folder automatically update the js files in the static/bundles
 
 ## Deploying Project
 
