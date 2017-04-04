@@ -53,6 +53,16 @@ CACHES = {
     }
 }
 
+#webpack loader
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/stage/',  # end with slash
+        'STATS_FILE': str(ROOT_DIR.path('webpack-stats-local.json')),
+        
+    }
+}
+
+
 # django-extensions (http://django-extensions.readthedocs.org/)
 # ------------------------------------------------------------------------------
 INSTALLED_APPS += ('django_extensions', )

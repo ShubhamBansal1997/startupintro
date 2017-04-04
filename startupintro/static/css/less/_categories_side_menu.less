@@ -1,0 +1,56 @@
+/*
+* Content Categories
+*/
+
+.v-categories.side-menu{
+  .bg-add {
+    position: absolute;
+    top: 0;
+  }
+  .content-block {
+    .cb-header {
+      margin-bottom: 0;
+    }
+    .cb-content {
+      margin-bottom: 0;
+      & > .row {
+        & > div {
+          padding-top: 30px;
+          padding-bottom: 40px;
+          &:first-child {
+            border-right: solid 1px @c-divider;
+          }
+          &:last-child {
+            padding-left: 34px;
+            left: -1px;
+            border-left: solid 1px @c-divider;
+          }
+        }
+      }
+      .sidebar-menu {
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          li {
+            a {
+              color: @c-light;
+              &:hover {
+                color: @c-active;
+              }
+            }
+            &:not(:first-child) {
+              margin-top: 16px;
+            }
+          }
+        }
+      }
+      @media only screen and(max-width: 414px) {
+        & > .row > div:nth-child(2) > .row > div {
+          width: 100%;
+        } 
+      }
+    }
+  }
+
+}

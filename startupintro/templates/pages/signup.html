@@ -1,0 +1,65 @@
+{% extends 'pages/base.html' %}
+{% load staticfiles i18n %}
+
+{% block title %}
+
+{% trans 'Home' %} • {{ block.super }}
+
+{% endblock title %}
+
+{% block body_classes %}
+
+{{ block.super}} page-home 
+
+{% endblock body_classes %}
+{% block content %}
+{% include 'particles/header.html' %}
+
+<div class="container-fluid bg-image">
+    <div class="row">
+        <div class="login-wraper">
+            <img src="{% static 'images/login.jpg' %}" alt="">
+            <div class="banner-text">
+                <div class="line"></div>
+                <div class="b-text">
+                    Watch <span class="color-active">millions<br> of</span> <span class="color-b1">v</span><span class="color-b2">i</span><span class="color-b3">de</span><span class="color-active">os</span> for free.
+                </div>
+                <div class="overtext">
+                    Over 6000 videos uploaded Daily.
+                </div>
+            </div>
+            <div class="login-window">
+                <div class="l-head">
+                    Sign Up for Free
+                </div>
+                <div class="l-form">
+                    <form action="signup.html">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="sample@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="**********">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword2">Re-type Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="**********">
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-7"><button type="submit" class="btn btn-cv1">Sign Up</button></div>
+                            <div class="col-lg-1 ortext">or</div>
+                            <div class="col-lg-4 signuptext"><a href="login.html">Log In</a></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 forgottext">
+                                <a href="#">By clicking "Sign Up" I agree to circle's Terms of Service.</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

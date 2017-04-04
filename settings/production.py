@@ -37,6 +37,16 @@ ADMINS = getaddresses([env('DJANGO_ADMINS')])
 # notifications and other various emails.
 MANAGERS = ADMINS
 
+#webpack loaders 
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/prod/',  # end with slash
+        'STATS_FILE': str(ROOT_DIR.path('webpack-stats-local.json')),
+        
+    }
+}
+
+
 # DJANGO_SITES
 # ------------------------------------------------------------------------------
 # see: http://niwinz.github.io/django-sites/latest/

@@ -11,6 +11,7 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
+# from .users.views import login
 
 # startupintro Stuff
 from startupintro.base import views as base_views
@@ -22,12 +23,17 @@ handler500 = base_views.server_error
 # Top Level Pages
 # ==============================================================================
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
+    # url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
+    url(r'^view2/',TemplateView.as_view(template_name='view2.html')),
+    url(r'^$',TemplateView.as_view(template_name='view1.html')),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
     # Your stuff: custom urls go here
+    # url(r'^login/$', login, name="login" ),
+    # url(r'^signup/$', TemplateView.as_view(template_name='pages/signup.html'), name='signup' ),
 ]
 
 urlpatterns += [
+    
 
     url(r'^(?P<filename>(robots.txt)|(humans.txt))$',
         base_views.root_txt_files, name='root-txt-files'),

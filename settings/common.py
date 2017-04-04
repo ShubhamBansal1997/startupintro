@@ -38,6 +38,7 @@ INSTALLED_APPS = (
 
     'compressor',
     'raven.contrib.django.raven_compat',
+    'webpack_loader',
 )
 
 # INSTALLED APPS CONFIGURATION
@@ -133,7 +134,7 @@ DEBUG = env.bool('DJANGO_DEBUG', False)
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'UTC + 5:30'
+TIME_ZONE = 'UTC'
 
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
@@ -248,6 +249,7 @@ STATICFILES_DIRS = (
     str(APPS_DIR.path('static')),
 )
 
+
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
@@ -255,6 +257,8 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
+
+
 
 # Django Compressor Configuration
 COMPRESS_CSS_FILTERS = [

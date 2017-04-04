@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="btn-color-toggle">
+            <img src="{% static 'images/icon_bulb_light.png' %}" alt="">
+        </div>
+        <div class="navbar-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-1 col-sm-2 col-xs-2">
+                        <a class="navbar-brand" href="index.html"><img src="{% static 'images/logo.svg' %}" alt="Project name" class="logo" /></a>
+                    </div>
+                    <div class="col-lg-3 col-sm-10 col-xs-10">
+                        <ul class="list-inline menu">
+                            <li class="pages">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index.html">Home Page</a></li>
+                                    <li><a href="single-video.html">Single Video Page</a></li>
+                                    <li><a href="single-video-youtube.html">Single Video Youtube Embedded Page</a></li>
+                                    <li><a href="single-video-vimeo.html">Single Video Vimeo Embedded Page</a></li>
+                                    <li><a href="upload.html">Upload Video Page</a></li>
+                                    <li><a href="upload-edit.html">Upload Video Edit Page</a></li>
+                                    <li><a href="search.html">Searched Videos Page</a></li>
+                                    <li><a href="channel.html">Single Channel Page</a></li>
+                                    <li><a href="channels.html">Channels Page</a></li>
+                                    <li><a href="single-video-tabs.html">Single Videos Page With Tabs</a></li>
+                                    <li><a href="single-video-playlist.html">Single Videos Page With Playlist</a></li>
+                                    <li><a href="history.html">History Page</a></li>
+                                    <li><a href="categories.html">Browse Categories Page</a></li>
+                                    <li><a href="categories_side_menu.html">Browse Categories Side Menu Page</a></li>
+                                    <li><a href="subscription.html">Subscription Page</a></li>
+                                    <li><a href="{% url 'login' %}">Login Page</a></li>
+                                    <li><a href="signup.html">Signup Page</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="categories.html">Categories</a></li>
+                            <li><a href="channel.html">Channels</a></li>
+                        </ul>
+                    </div>
+                    <div class="visible-xs visible-sm clearfix"></div>
+                    <div class="col-lg-6 col-sm-8 col-xs-12">
+                        <form action="search.html" method="post">
+                            <div class="topsearch">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-search"></i></span>
+                                    <input type="text" class="form-control" placeholder="Search" aria-describedby="sizing-addon2">
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="cv cvicon-cv-video-file"></i>&nbsp;&nbsp;&nbsp;<span class="caret"></span></button>/
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#"><i class="cv cvicon-cv-relevant"></i> Relevant</a></li>
+                                            <li><a href="#"><i class="cv cvicon-cv-calender"></i> Recent</a></li>
+                                            <li><a href="#"><i class="cv cvicon-cv-view-stats"></i> Viewed</a></li>
+                                            <li><a href="#"><i class="cv cvicon-cv-star"></i> Top Rated</a></li>
+                                            <li><a href="#"><i class="cv cvicon-cv-watch-later"></i> Longest</a></li>
+                                        </ul>
+                                    </div><!-- /btn-group -->
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="visible-xs clearfix"></div>
+                    <div class="col-lg-2 col-sm-4  col-xs-8">
+                        <div class="loginsignup pull-right">
+                            <a href="{% url 'login' %}">Login</a> . <a href="{% url 'signup' %}">Signup</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /logo -->

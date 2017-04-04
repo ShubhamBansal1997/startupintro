@@ -26,5 +26,5 @@
     - common
     - nginx
     - project_data
-    # - redis
-    # - celery
+    - redis
+    - celery

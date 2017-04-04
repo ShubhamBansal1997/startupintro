@@ -184,3 +184,10 @@ def verify_virtualenv():
 
     if not isdir(env.virtualenv_dir):
         local('virtualenv %(virtualenv_dir)s -p $(which python3)' % env)
+
+
+def webpack():
+    local('rm -rf startupintro/static/bundles/stage/*')
+    local('rm -rf startupintro/static/bundles/prod/*')
+    local('webpack --config webpack.stage.config.js --progress --colors')
+    local('webpack --config webpack.prod.config.js --progress --colors')
