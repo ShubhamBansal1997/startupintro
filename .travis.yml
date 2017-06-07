@@ -33,16 +33,3 @@ notifications:
     on_success: change  # [always|never|change]
     on_failure: always  # [always|never|change]
 
-deploy:
-  provider: heroku
-  buildpack: python
-  strategy: api
-  api_key:
-    # travis encrypt $(heroku auth:token) --add deploy.api_key
-    secure: <add_heroku_auth_token_here>
-  app:
-    master: startupintro-dev
-    qa: startupintro-qa
-    prod: startupintro-prod
-  on:
-    repo: ShubhamBansal1997/startupintro
