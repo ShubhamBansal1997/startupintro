@@ -1,27 +1,29 @@
+
 language: python
 sudo: false
 python:
 - '3.5.2'
 
 addons:
-  postgresql: "9.4"
+  postgresql: "9.5"
+  apt:
+    packages:
+      - postgresql-9.5-postgis-2.3
 
 cache:
   directories:
     - $HOME/.cache/pip
-    - $HOME/.pip-accel
 
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
 
 install:
-  - pip install pip-accel
-  - pip-accel install ansible
-  - pip-accel install -r requirements/development.txt
+  - pip install ansible
+  - pip install -r requirements/development.txt
 
 before_script:
-- export DATABASE_URL=postgres://postgres@localhost/startupintro
-- psql -c "CREATE DATABASE startupintro;" -U postgres
+- export DATABASE_URL=postgres://postgres@localhost/finbouquet
+- psql -c "CREATE DATABASE finbouquet;" -U postgres
 
 script:
 - flake8
@@ -32,4 +34,3 @@ notifications:
   email:
     on_success: change  # [always|never|change]
     on_failure: always  # [always|never|change]
-
